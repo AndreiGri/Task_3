@@ -4,8 +4,8 @@
 
 using namespace std;
 
-void show_vec(vector<int>& v)
-{
+void show_vec(vector<int>& v)                                 // Метод выводит значения вектора 
+{                                                             // в терминал
     for (int i = 0; i < v.size(); i++)
     {
         if (i == 0)cout << "{ " << v[i] << ',';
@@ -17,7 +17,7 @@ void show_vec(vector<int>& v)
     }
 }
 
-void bubble_sort(vector<int>& v)
+void bubble_sort(vector<int>& v)                              // Метод сортировки пузырьком
 {
     for (int i = 0; i < v.size(); i++)
     {
@@ -36,37 +36,37 @@ int main()
     system("color 80");
     system("chcp 1251>nul");
 
-    vector<int>vec;
-    int n = 0;
-
-    while (n != -2)
+    vector<int>vec;                                           // Объявляем вектор без размера
+    int n = 0;                                                // Объявляем и инициализируем переменную
+                                                              // для записи значений в векторе
+    while (n != -2)                                           // Метод продолжается пока не введено -2
     {
-        cout << " Введите число: ";
-        cin >> n;
+        cout << " Введите число: ";                           // Запрашиваем переменную
+        cin >> n;                                             // Записываем переменную в n
 
-        if (n != -1)
+        if (n != -1)                                          // Если n не равна -1
         {
-            if (vec.size() < 5)
+            if (vec.size() < 5)                               // Если размер вектора меньше 5
             {
-                vec.push_back(n);
-                bubble_sort(vec);
+                vec.push_back(n);                             // Добавляем в вектор значение n
+                bubble_sort(vec);                             // и сортируем мектор по возрастанию
             }
-            else
+            else                                              // иначе
             {
-                if (vec[4] > n)
+                if (vec[4] > n)                               // если пятый элемент в векторе больше n
                 {
-                    vec.pop_back();
-                    vec.push_back(n);
-                    bubble_sort(vec);
+                    vec.pop_back();                           // удаляем пятый элемент
+                    vec.push_back(n);                         // и на его место добавляем значение n
+                    bubble_sort(vec);                         // и сортируем вектор по возростанию
                 }
             }
             
         }
-        else
+        else                                                  // Если введено -1
         {
-            if (vec.size() == 5)
-            {
-                cout << endl;
+            if (vec.size() == 5)                              // при размере вектора 5
+            {                                                 // выводим значение пятого элемента 
+                cout << endl;                                 // в векторе
                 cout << " Вывод: " << vec[4];
                 cout << " (в отсортированном виде введённые числа выглядят так: ";
                 show_vec(vec);
